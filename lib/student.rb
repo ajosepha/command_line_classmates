@@ -11,4 +11,4 @@ class Student
         
 end
 
-hunger_games = Student.new("Katniss", "@dist12", "ihartzgale")
+#hunger_games = Student.new("Katniss", "@dist12", "ihartzgale")

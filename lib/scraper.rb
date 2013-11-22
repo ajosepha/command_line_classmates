@@ -4,7 +4,7 @@ require 'nokogiri'
 #use nokogiri to take temp file and make them useful
 #if they are in html, Nokogiri will take the file return it in a nicer format
 #we thenstore this file in our @html variable
-require 'debugger'
+
 
 class Scraper
 

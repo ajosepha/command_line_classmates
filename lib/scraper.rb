@@ -4,6 +4,7 @@ require 'nokogiri'
 #use nokogiri to take temp file and make them useful
 #if they are in html, Nokogiri will take the file return it in a nicer format
 #we thenstore this file in our @html variable
+require 'debugger'
 
 class Scraper
 
@@ -20,11 +21,32 @@ class Scraper
     end    
 
     def get_student_names
-        student = html.search("h3").to_s
-        
-        
+        student = html.search("h3").to_s.split("</h3><h3>")
+        # student[0]=student[0][4..-1]
+        # student[-1] = student[-1][0..-6]
+        # return student
+        #student_string = "#{student}"
+        #student_string.gsub("[<h3>]", " ") 
+        #student.select {|name| name.String?}
+        #puts student.inspect
+        #student is an array.  Need to get the name out of the array
+        # new_student = [ ]
+        # student.each do |name|
+        #     name.delete("<h3>")
+        #     name.to_s
+        #     new_student << name  
+        #     #name.gsub("<h3>", " ")
+        # end
+        #    puts new_student.inspect
+
+        #puts student.inspect
+    end
+
+       
+        #puts student.inspect
+
             #CSS selector can go inside of the method    
-    end  
+   
 
     def get_twitter
         twitter = html.css('.twitter').text.split

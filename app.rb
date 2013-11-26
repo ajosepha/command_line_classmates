@@ -16,29 +16,48 @@ students = []
     students << Student.new(names[i], twitters[i], blogs[i])
 end
 
-#ap blogs
-
 def see_blogs(blogs)
     ap blogs
 end
-#see_blogs(blogs)
+
 
 def see_roster(names)
     ap names
 end
-#see_roster(names)
 
 def see_twitters(twitter)
     ap twitter
 end
-#see_twitters(twitters)
 
-def what_do_you_want_do
-    puts "Hello, would you like to see a roster, blogs, or a list of names?"
-    puts "If you would like to see a roster, type roster, for blogs type blogs or for names, type names."
-    input = gets.chomp
-        if input == "names"
+puts "Hello, would you like to see a roster, blogs, or a list of names?"
+puts "If you would like to see a roster, type names, for blogs type blogs or for twitter, type twitter."
+input = gets.chomp
+    if input == "blogs"
+        see_blogs(blogs)
+    elsif input == "names"
         see_roster(names)
-        end 
-end
-what_do_you_want_do
+    elsif input == "twitter"
+        see_twitters(twitters)
+    else puts "would you like to open a random blog? y/n"
+        response = gets.chomp
+        if response == "y"
+            #next if blogs[i] == "none"
+            Launchy.open("#{blogs.sample}")
+        end
+        if response == "n"
+            puts "would you like to open someone's blog? y/n"
+            response = gets.chomp
+            if response == "y"
+                puts "whose blog? please type the index numer"
+                see_roster(names)
+                id = gets.chomp.to_i
+                Launchy.open("#{students[id].blogs}")
+            end
+            
+
+        end
+    end
+
+  
+
+
